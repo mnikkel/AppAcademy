@@ -4,7 +4,7 @@ class Player
     @name = name
   end
 
-  def guess(fragment)
+  def guess(fragment, dictionary)
     puts "Current Fragment: #{fragment}"
     puts "#{self.name} -- Enter a letter:"
     gets.chomp

@@ -1,4 +1,5 @@
 require_relative './Player.rb'
+require_relative './Ai_Player.rb'
 
 class Game
   attr_reader :fragment
@@ -35,7 +36,7 @@ class Game
   end
 
   def take_turn(player)
-    player.guess(@fragment)
+    player.guess(@fragment, @dictionary)
   end
 
   def valid_play?(*char)
@@ -77,8 +78,7 @@ end
 
 if __FILE__ == $PROGRAM_NAME
   p1 = Player.new("Mark")
-  p2 = Player.new("Mary")
-  p3 = Player.new("Peter")
-  g = Game.new(p1, p2, p3)
+  p2 = Ai_Player.new
+  g = Game.new(p1, p2)
   g.run
 end
