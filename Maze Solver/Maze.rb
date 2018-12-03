@@ -7,6 +7,10 @@ class Maze
     @end = find_point("E")
   end
 
+  def coords(x, y)
+    @maze[y][x]
+  end
+
   def load_maze(file)
     f = File.open(file)
     maze_array = []
@@ -17,7 +21,7 @@ class Maze
   def find_point(point)
     @maze.each_with_index do |line, i|
       found = line.index(point)
-      return [i, found] if found
+      return [found, i] if found
     end
   end
 end
