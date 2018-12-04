@@ -24,6 +24,18 @@ class Maze
       return [found, i] if found
     end
   end
+
+  def set_point(x, y, p)
+    @maze[y][x] = p
+  end
+
+  def print
+    pretty = ""
+    @maze.each do |line|
+      pretty += line.join + "\n"
+    end
+    pretty
+  end
 end
 
 if __FILE__ == $PROGRAM_NAME
